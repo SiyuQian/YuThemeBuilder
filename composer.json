@@ -1,0 +1,24 @@
+{
+    "name": "siyu/ocotber-theme-builder",
+    "description": "A theme builder for OctoberCMS, partial template picker",
+    "type": "library",
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Siyu Qian",
+            "email": "me@siyuqian.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/yaml": "^3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "YuBuilder\\": "src/"
+        },
+        "files" : [
+            "src/Support/Helpers.php"
+        ]
+    }
+}
