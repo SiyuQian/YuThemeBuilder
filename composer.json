@@ -2,7 +2,7 @@
     "name": "siyu/ocotber-theme-builder",
     "description": "A theme builder for OctoberCMS, partial template picker",
     "type": "library",
-    "license": "GPL-3.0-only",
+    "license": "MIT",
     "authors": [
         {
             "name": "Siyu Qian",
