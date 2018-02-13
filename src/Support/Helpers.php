@@ -4,7 +4,7 @@ if (!function_exists('logger'))
     /**
      * Writes a trace message to a log file.
      */
-    function logger($message, $file = NULL)
+    function trace_log($message, $file = NULL)
     {
         $default = '/tmp/yunet/debug.log';
 
@@ -33,3 +33,8 @@ if (!function_exists('logger'))
         fclose($fileHandler);
     }
 }
+
+if (!defined('DS')) {
+    define('DS', DIRECTORY_SEPARATOR);
+}
+

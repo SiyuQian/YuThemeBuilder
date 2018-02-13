@@ -1,10 +1,7 @@
 <?php
 namespace YuBuilder\Generator\Adapter;
 
-use YuBuilder\Generator\Generator;
-use Symfony\Component\Yaml\Yaml;
-
-class YamlGenerator extends Generator
+class YamlGenerator extends \YuBuilder\Generator\Generator
 {
 	protected $theme = [];
 
@@ -24,7 +21,6 @@ class YamlGenerator extends Generator
 			$this->checkRequiredKeys($this->config->theme);
 		}
 		$this->theme = $this->config->theme;
-		$this->output = $this->config->output['directory'];
 	}
 
 	private function checkRequiredKeys(array $theme)
@@ -34,7 +30,7 @@ class YamlGenerator extends Generator
 			if (!array_key_exists($key, $theme)) {
 				// todo: move logger into exception class
 				$message = __CLASS__ . '->' . __FUNCTION__ . ': does not contain all the required keys. Missing: ' . $key;
-				logger($message);
+				trace_log($message);
 				throw new \Exception($message);
 			}
 		}
@@ -43,8 +39,12 @@ class YamlGenerator extends Generator
 
 	public function generate()
 	{
-		$filename = $this->output . '/theme.yaml';
-		$yaml = Yaml::dump($this->theme);
+		$filename = $this->config->output['directory'] . $this->config->output['name'] . '/theme.yaml';
+		if (!file_exists(dirname($filename))) {
+            mkdir(dirname($filename), 0777, true);
+        }
+		$yaml = \Symfony\Component\Yaml\Yaml::dump($this->theme);
 		file_put_contents($filename, $yaml);
+		trace_log($filename . ' has been generated.');
 	}
 }

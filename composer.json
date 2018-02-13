@@ -20,5 +20,8 @@
         "files" : [
             "src/Support/Helpers.php"
         ]
+    },
+    "scripts": {
+        "run": "php ./tests/index.php"
     }
 }
