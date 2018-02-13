@@ -1,4 +1,4 @@
-# YuThemeBuilder
+# YuThemeBuilder (October Theme Builder)
 This is a theme builder for OctoberCMS.
 
 ## INTRODUCTION
